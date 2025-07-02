@@ -58,6 +58,27 @@ scrape_configs:
          - targets:
            - 'windows-hos:9182'
 
+  - job_name: mikrotik
+    static_configs:
+      - targets:
+        - 10.10.0.2
+        - 10.10.0.3
+        - 10.10.0.4
+        - 10.10.0.5
+        - 10.10.0.11
+        - 10.10.0.12
+        - 10.10.0.13
+        - 10.10.0.21
+    params:
+      module: [mikrotik]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: mikrotik-exporter:9436
+
   - job_name: 'node-exporter'
 
     # Override the global default and scrape targets from this job every 5 seconds.

@@ -1,0 +1,42 @@
+devices:
+  - name: R01
+    address: 10.10.0.2
+    user: prometheus
+    password: Gh0vtntq
+  - name: R02
+    address: 10.10.0.3
+    user: prometheus
+    password: Gh0vtntq
+  - name: SW01
+    address: 10.10.0.4
+    user: prometheus
+    password: Gh0vtntq
+  - name: SW02
+    address: 10.10.0.5
+    user: prometheus
+    password: Gh0vtntq
+  - name: USW216
+    address: 10.10.0.21
+    user: prometheus
+    password: Gh0vtntq
+  - name: USWF
+    address: 10.10.0.12
+    user: prometheus
+    password: Gh0vtntq
+  - name: USWS01
+    address: 10.10.0.11
+    user: prometheus
+    password: Gh0vtntq
+  - name: USWS02
+    address: 10.10.0.13
+    user: prometheus
+    password: Gh0vtntq
+
+features:
+  bgp: false
+  dhcp: false
+  dhcpv6: false
+  dhcpl: false
+  routes: true
+  pools: true
+  optics: true

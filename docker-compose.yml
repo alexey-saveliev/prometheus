@@ -73,17 +73,17 @@ services:
       - "./volumes/blackbox:/config"
     command: -config.file=/config/blackbox.yml
 
-  # mikrotik-exporter:
-  #   image: nshttpd/mikrotik-exporter:1.0.11
-  #   volumes:
-  #     - './volumes/mikrotik:/config'
-  #   environment:
-  #     - "CONFIG_FILE=/config/config.yml"
-  #   ports:
-  #     - 9436:9436
-  #   networks:
-  #     - monitor-net
-  #   restart: unless-stopped
+  mikrotik-exporter:
+    image: nshttpd/mikrotik-exporter:1.0.11
+    volumes:
+      - './volumes/mikrotik:/config'
+    environment:
+      - "CONFIG_FILE=/config/config.yml"
+    ports:
+      - 9436:9436
+    networks:
+      - monitor-net
+    restart: unless-stopped
   
   snmp:
     image: quay.io/prometheus/snmp-exporter
@@ -161,7 +161,7 @@ services:
     volumes:
       - ./volumes/grafana/data:/var/lib/grafana
       - ./volumes/grafana/etc:/etc/grafana/provisioning/
-    env:
+    environment:
       - "GF_SECURITY_ADMIN_PASSWORD=P@ssw0rd"
       - "GF_USERS_ALLOW_SIGN_UP=false"
     networks:
